@@ -76,6 +76,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/product-details/product-details.component.html":
+  /*!******************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/product-details/product-details.component.html ***!
+    \******************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppProductDetailsProductDetailsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<h2>Product Details</h2>\n\n<div *ngIf=\"product\">\n\n    <h3>{{product.name}}</h3>\n    <h4>{{product.price | currency}}</h4>\n    <p>{{product.description}}</p>\n\n</div>";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/product-list/product-list.component.html":
   /*!************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/product-list/product-list.component.html ***!
@@ -91,7 +111,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h2>Products</h2>\r\n\r\n<div *ngFor=\"let product of products\">\r\n\r\n    <h3>\r\n        <a [title]=\"product.name + ' details'\"></a>\r\n        {{product.name}}\r\n    </h3>\r\n\r\n    <p *ngIf=\"product.description\">\r\n        Description: {{product.description}}\r\n    </p>\r\n\r\n    <button (click)=\"share()\">\r\n        Share\r\n    </button>\r\n\r\n    <app-product-alerts\r\n            [product]=\"product\"\r\n            (notify)=\"onNotify()\">\r\n    </app-product-alerts>\r\n</div>\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->";
+    __webpack_exports__["default"] = "<h2>Products</h2>\r\n\r\n<div *ngFor=\"let product of products; index as productId\">\r\n\r\n    <h3>\r\n        <a\r\n                [title]=\"product.name + ' details'\"\r\n                [routerLink]=\"['/products', productId]\">\r\n            {{product.name}}\r\n        </a>\r\n    </h3>\r\n\r\n    <p *ngIf=\"product.description\">\r\n        Description: {{product.description}}\r\n    </p>\r\n\r\n    <button (click)=\"share()\">\r\n        Share\r\n    </button>\r\n\r\n    <app-product-alerts\r\n            [product]=\"product\"\r\n            (notify)=\"onNotify()\">\r\n    </app-product-alerts>\r\n</div>\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->";
     /***/
   },
 
@@ -262,6 +282,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _product_alerts_product_alerts_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./product-alerts/product-alerts.component */
     "./src/app/product-alerts/product-alerts.component.ts");
+    /* harmony import */
+
+
+    var _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./product-details/product-details.component */
+    "./src/app/product-details/product-details.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -271,8 +297,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot([{
         path: '',
         component: _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_7__["ProductListComponent"]
+      }, {
+        path: 'products/:productId',
+        component: _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__["ProductDetailsComponent"]
       }])],
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_6__["TopBarComponent"], _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_7__["ProductListComponent"], _product_alerts_product_alerts_component__WEBPACK_IMPORTED_MODULE_8__["ProductAlertsComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_6__["TopBarComponent"], _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_7__["ProductListComponent"], _product_alerts_product_alerts_component__WEBPACK_IMPORTED_MODULE_8__["ProductAlertsComponent"], _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__["ProductDetailsComponent"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })], AppModule);
     /*
@@ -362,6 +391,109 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /*! ./product-alerts.component.css */
       "./src/app/product-alerts/product-alerts.component.css"))["default"]]
     })], ProductAlertsComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/product-details/product-details.component.css":
+  /*!***************************************************************!*\
+    !*** ./src/app/product-details/product-details.component.css ***!
+    \***************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppProductDetailsProductDetailsComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Byb2R1Y3QtZGV0YWlscy9wcm9kdWN0LWRldGFpbHMuY29tcG9uZW50LmNzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/product-details/product-details.component.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/product-details/product-details.component.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: ProductDetailsComponent */
+
+  /***/
+  function srcAppProductDetailsProductDetailsComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ProductDetailsComponent", function () {
+      return ProductDetailsComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../products */
+    "./src/app/products.ts");
+
+    var ProductDetailsComponent = /*#__PURE__*/function () {
+      function ProductDetailsComponent(route) {
+        _classCallCheck(this, ProductDetailsComponent);
+
+        this.route = route;
+      }
+
+      _createClass(ProductDetailsComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this = this;
+
+          this.route.paramMap.subscribe(function (params) {
+            _this.product = _products__WEBPACK_IMPORTED_MODULE_3__["products"][+params.get('productId')];
+          });
+        }
+      }]);
+
+      return ProductDetailsComponent;
+    }();
+
+    ProductDetailsComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }];
+    };
+
+    ProductDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-product-details',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./product-details.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/product-details/product-details.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./product-details.component.css */
+      "./src/app/product-details/product-details.component.css"))["default"]]
+    })], ProductDetailsComponent);
     /***/
   },
 
