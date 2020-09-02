@@ -56,6 +56,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/cart/cart.component.html":
+  /*!********************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/cart/cart.component.html ***!
+    \********************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppCartCartComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<h3>Cart</h3>\n\n<p>\n    <a routerLink=\"/shipping\">\n        Shipping Prices\n    </a>\n</p>\n\n<div class=\"cart-item\" *ngFor=\"let item of items\">\n    <span>{{ item.name }}</span>\n    <span>{{ item.price | currency }}</span>\n</div>";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/product-alerts/product-alerts.component.html":
   /*!****************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/product-alerts/product-alerts.component.html ***!
@@ -91,7 +111,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h2>Product Details</h2>\n\n<div *ngIf=\"product\">\n\n    <h3>{{product.name}}</h3>\n    <h4>{{product.price | currency}}</h4>\n    <p>{{product.description}}</p>\n\n</div>";
+    __webpack_exports__["default"] = "<h2>Product Details</h2>\n\n<div *ngIf=\"product\">\n\n    <h3>{{product.name}}</h3>\n    <h4>{{product.price | currency}}</h4>\n    <p>{{product.description}}</p>\n\n    <button (click)=\"addToCart(product)\">Buy</button>\n\n</div>";
     /***/
   },
 
@@ -116,6 +136,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/shipping/shipping.component.html":
+  /*!****************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shipping/shipping.component.html ***!
+    \****************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppShippingShippingComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<h3>Shipping Prices</h3>\n\n<div class=\"shipping-item\" *ngFor=\"let shipping of shippingCosts | async\">\n    <span>{{shipping.type}}</span>\n    <span>{{shipping.price | currency}}</span>\n</div>";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/top-bar/top-bar.component.html":
   /*!**************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/top-bar/top-bar.component.html ***!
@@ -131,7 +171,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<a [routerLink]=\"['/']\">\r\n  <h1>My Store</h1>\r\n</a>\r\n\r\n<a class=\"button fancy-button\"><i class=\"material-icons\">shopping_cart</i>Checkout</a>\r\n\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->";
+    __webpack_exports__["default"] = "<a [routerLink]=\"['/']\">\r\n  <h1>My Store</h1>\r\n</a>\r\n\r\n<a [routerLink]=\"['/cart']\" class=\"button fancy-button\">\r\n  <i class=\"material-icons\">shopping_cart</i>\r\n  Checkout\r\n</a>\r\n\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->";
     /***/
   },
 
@@ -288,6 +328,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./product-details/product-details.component */
     "./src/app/product-details/product-details.component.ts");
+    /* harmony import */
+
+
+    var _cart_cart_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./cart/cart.component */
+    "./src/app/cart/cart.component.ts");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _shipping_shipping_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! ./shipping/shipping.component */
+    "./src/app/shipping/shipping.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -300,8 +358,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'products/:productId',
         component: _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__["ProductDetailsComponent"]
-      }])],
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_6__["TopBarComponent"], _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_7__["ProductListComponent"], _product_alerts_product_alerts_component__WEBPACK_IMPORTED_MODULE_8__["ProductAlertsComponent"], _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__["ProductDetailsComponent"]],
+      }, {
+        path: 'cart',
+        component: _cart_cart_component__WEBPACK_IMPORTED_MODULE_10__["CartComponent"]
+      }, {
+        path: 'shipping',
+        component: _shipping_shipping_component__WEBPACK_IMPORTED_MODULE_12__["ShippingComponent"]
+      }]), _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_6__["TopBarComponent"], _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_7__["ProductListComponent"], _product_alerts_product_alerts_component__WEBPACK_IMPORTED_MODULE_8__["ProductAlertsComponent"], _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__["ProductDetailsComponent"], _cart_cart_component__WEBPACK_IMPORTED_MODULE_10__["CartComponent"], _shipping_shipping_component__WEBPACK_IMPORTED_MODULE_12__["ShippingComponent"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })], AppModule);
     /*
@@ -310,6 +374,183 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     can be found in the LICENSE file at http://angular.io/license
     */
 
+    /***/
+  },
+
+  /***/
+  "./src/app/cart.service.ts":
+  /*!*********************************!*\
+    !*** ./src/app/cart.service.ts ***!
+    \*********************************/
+
+  /*! exports provided: CartService */
+
+  /***/
+  function srcAppCartServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CartService", function () {
+      return CartService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+    var CartService = /*#__PURE__*/function () {
+      function CartService(http) {
+        _classCallCheck(this, CartService);
+
+        this.http = http;
+        this.items = [];
+      }
+
+      _createClass(CartService, [{
+        key: "addToCart",
+        value: function addToCart(product) {
+          return this.items.push(product);
+        }
+      }, {
+        key: "getItems",
+        value: function getItems() {
+          return this.items;
+        }
+      }, {
+        key: "clearCart",
+        value: function clearCart() {
+          this.items = [];
+          return this.items;
+        }
+      }, {
+        key: "shippingPrices",
+        get: function get() {
+          return this.http.get('/assets/shipping.json');
+        }
+      }]);
+
+      return CartService;
+    }();
+
+    CartService.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }];
+    };
+
+    CartService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], CartService);
+    /***/
+  },
+
+  /***/
+  "./src/app/cart/cart.component.css":
+  /*!*****************************************!*\
+    !*** ./src/app/cart/cart.component.css ***!
+    \*****************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppCartCartComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NhcnQvY2FydC5jb21wb25lbnQuY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/cart/cart.component.ts":
+  /*!****************************************!*\
+    !*** ./src/app/cart/cart.component.ts ***!
+    \****************************************/
+
+  /*! exports provided: CartComponent */
+
+  /***/
+  function srcAppCartCartComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CartComponent", function () {
+      return CartComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../cart.service */
+    "./src/app/cart.service.ts");
+
+    var CartComponent = /*#__PURE__*/function () {
+      function CartComponent(cartService) {
+        _classCallCheck(this, CartComponent);
+
+        this.cartService = cartService;
+      }
+
+      _createClass(CartComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.items = this.cartService.getItems();
+        }
+      }]);
+
+      return CartComponent;
+    }();
+
+    CartComponent.ctorParameters = function () {
+      return [{
+        type: _cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"]
+      }];
+    };
+
+    CartComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-cart',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./cart.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/cart/cart.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./cart.component.css */
+      "./src/app/cart/cart.component.css"))["default"]]
+    })], CartComponent);
     /***/
   },
 
@@ -457,12 +698,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../products */
     "./src/app/products.ts");
+    /* harmony import */
+
+
+    var _cart_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../cart.service */
+    "./src/app/cart.service.ts");
 
     var ProductDetailsComponent = /*#__PURE__*/function () {
-      function ProductDetailsComponent(route) {
+      function ProductDetailsComponent(route, cartService) {
         _classCallCheck(this, ProductDetailsComponent);
 
         this.route = route;
+        this.cartService = cartService;
       }
 
       _createClass(ProductDetailsComponent, [{
@@ -474,6 +722,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.product = _products__WEBPACK_IMPORTED_MODULE_3__["products"][+params.get('productId')];
           });
         }
+      }, {
+        key: "addToCart",
+        value: function addToCart(product) {
+          var index = this.cartService.addToCart(product);
+          window.alert('Your product has been added to the cart!');
+          return index;
+        }
       }]);
 
       return ProductDetailsComponent;
@@ -482,6 +737,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     ProductDetailsComponent.ctorParameters = function () {
       return [{
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _cart_service__WEBPACK_IMPORTED_MODULE_4__["CartService"]
       }];
     };
 
@@ -634,6 +891,99 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     can be found in the LICENSE file at http://angular.io/license
     */
 
+    /***/
+  },
+
+  /***/
+  "./src/app/shipping/shipping.component.css":
+  /*!*************************************************!*\
+    !*** ./src/app/shipping/shipping.component.css ***!
+    \*************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppShippingShippingComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoaXBwaW5nL3NoaXBwaW5nLmNvbXBvbmVudC5jc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/shipping/shipping.component.ts":
+  /*!************************************************!*\
+    !*** ./src/app/shipping/shipping.component.ts ***!
+    \************************************************/
+
+  /*! exports provided: ShippingComponent */
+
+  /***/
+  function srcAppShippingShippingComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ShippingComponent", function () {
+      return ShippingComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../cart.service */
+    "./src/app/cart.service.ts");
+
+    var ShippingComponent = /*#__PURE__*/function () {
+      function ShippingComponent(cartService) {
+        _classCallCheck(this, ShippingComponent);
+
+        this.cartService = cartService;
+      }
+
+      _createClass(ShippingComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.shippingCosts = this.cartService.shippingPrices;
+        }
+      }]);
+
+      return ShippingComponent;
+    }();
+
+    ShippingComponent.ctorParameters = function () {
+      return [{
+        type: _cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"]
+      }];
+    };
+
+    ShippingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-shipping',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./shipping.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/shipping/shipping.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./shipping.component.css */
+      "./src/app/shipping/shipping.component.css"))["default"]]
+    })], ShippingComponent);
     /***/
   },
 
