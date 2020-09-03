@@ -265,7 +265,7 @@ let CartService = class CartService {
         return this.items;
     }
     get shippingPrices() {
-        return this.http.get('/assets/shipping.json');
+        return this.http.get('./assets/shipping.json');
     }
 };
 CartService.ctorParameters = () => [
