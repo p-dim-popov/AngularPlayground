@@ -71,7 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h3>Cart</h3>\n\n<p>\n    <a routerLink=\"/shipping\">\n        Shipping Prices\n    </a>\n</p>\n\n<div class=\"cart-item\" *ngFor=\"let item of items\">\n    <span>{{ item.name }}</span>\n    <span>{{ item.price | currency }}</span>\n</div>";
+    __webpack_exports__["default"] = "<h3>Cart</h3>\n\n<p>\n    <a routerLink=\"/shipping\">\n        Shipping Prices\n    </a>\n</p>\n\n<div class=\"cart-item\" *ngFor=\"let item of items\">\n    <span>{{ item.name }}</span>\n    <span>{{ item.price | currency }}</span>\n</div>\n\n<form [formGroup]=\"checkoutForm\" (ngSubmit)=\"onSubmit(checkoutForm.value)\">\n\n    <div>\n        <label for=\"name\">\n            Name\n        </label>\n        <input id=\"name\" type=\"text\" formControlName=\"name\">\n    </div>\n\n    <div>\n        <label for=\"address\">\n            Address\n        </label>\n        <input id=\"address\" type=\"text\" formControlName=\"address\">\n    </div>\n\n    <button class=\"button\" type=\"submit\">Purchase</button>\n\n</form>";
     /***/
   },
 
@@ -515,21 +515,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _cart_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../cart.service */
     "./src/app/cart.service.ts");
 
     var CartComponent = /*#__PURE__*/function () {
-      function CartComponent(cartService) {
+      function CartComponent(cartService, formBuilder) {
         _classCallCheck(this, CartComponent);
 
         this.cartService = cartService;
+        this.formBuilder = formBuilder;
+        this.checkoutForm = this.formBuilder.group({
+          name: '',
+          address: ''
+        });
       }
 
       _createClass(CartComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
           this.items = this.cartService.getItems();
+        }
+      }, {
+        key: "onSubmit",
+        value: function onSubmit(customerData) {
+          this.items = this.cartService.clearCart();
+          this.checkoutForm.reset();
+          console.warn('Your order has been submitted', customerData);
         }
       }]);
 
@@ -538,7 +556,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     CartComponent.ctorParameters = function () {
       return [{
-        type: _cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"]
+        type: _cart_service__WEBPACK_IMPORTED_MODULE_3__["CartService"]
+      }, {
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
       }];
     };
 

@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h3>Cart</h3>\n\n<p>\n    <a routerLink=\"/shipping\">\n        Shipping Prices\n    </a>\n</p>\n\n<div class=\"cart-item\" *ngFor=\"let item of items\">\n    <span>{{ item.name }}</span>\n    <span>{{ item.price | currency }}</span>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h3>Cart</h3>\n\n<p>\n    <a routerLink=\"/shipping\">\n        Shipping Prices\n    </a>\n</p>\n\n<div class=\"cart-item\" *ngFor=\"let item of items\">\n    <span>{{ item.name }}</span>\n    <span>{{ item.price | currency }}</span>\n</div>\n\n<form [formGroup]=\"checkoutForm\" (ngSubmit)=\"onSubmit(checkoutForm.value)\">\n\n    <div>\n        <label for=\"name\">\n            Name\n        </label>\n        <input id=\"name\" type=\"text\" formControlName=\"name\">\n    </div>\n\n    <div>\n        <label for=\"address\">\n            Address\n        </label>\n        <input id=\"address\" type=\"text\" formControlName=\"address\">\n    </div>\n\n    <button class=\"button\" type=\"submit\">Purchase</button>\n\n</form>");
 
 /***/ }),
 
@@ -306,20 +306,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartComponent", function() { return CartComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../cart.service */ "./src/app/cart.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _cart_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../cart.service */ "./src/app/cart.service.ts");
+
 
 
 
 let CartComponent = class CartComponent {
-    constructor(cartService) {
+    constructor(cartService, formBuilder) {
         this.cartService = cartService;
+        this.formBuilder = formBuilder;
+        this.checkoutForm = this.formBuilder.group({
+            name: '',
+            address: '',
+        });
     }
     ngOnInit() {
         this.items = this.cartService.getItems();
     }
+    onSubmit(customerData) {
+        this.items = this.cartService.clearCart();
+        this.checkoutForm.reset();
+        console.warn('Your order has been submitted', customerData);
+    }
 };
 CartComponent.ctorParameters = () => [
-    { type: _cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"] }
+    { type: _cart_service__WEBPACK_IMPORTED_MODULE_3__["CartService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
 ];
 CartComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
