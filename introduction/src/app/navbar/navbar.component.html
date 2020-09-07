@@ -1,0 +1,14 @@
+<nav>
+  <ul [ngClass]="menuActive ? 'active' : ''">
+    <li class="logo">
+      <a href="./">Angular Coding Playground</a>
+    </li>
+    <li class="item">
+      <a href="#/about">About</a>
+    </li>
+    <li class="toggle"
+        (click)="toggleMenu()">
+      <button>{{menuActive ? '✕' : '☰'}}</button>
+    </li>
+  </ul>
+</nav>
